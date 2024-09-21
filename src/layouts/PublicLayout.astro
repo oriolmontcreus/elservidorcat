@@ -19,29 +19,18 @@ import Navbar from "@components/Navbar.astro";
 	</head>
 	<body>
 		<Navbar/>
-		<div class="overflow-y-scroll h-[calc(100vh-68px)] scroll-smooth">
+		<div class="overflow-y-scroll h-[calc(100vh-68px)] scroll-smooth dark:bg-darkish">
 			<slot />
 		</div>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	::selection {
 		background-color: #95b8e477;
-		color: black;;
+		color: black;
 	}
 	html {
-		color-scheme: white;
+		color-scheme: dark;
 		scroll-behavior: smooth;
 		scrollbar-width: thin;
 	}
