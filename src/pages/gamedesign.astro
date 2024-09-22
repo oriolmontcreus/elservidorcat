@@ -1,0 +1,38 @@
+---
+import PublicLayout from "@layouts/PublicLayout.astro";
+import "@styles/app.css";
+import { ModeWatcher } from "mode-watcher";
+import { Icon } from "astro-icon/components";
+import Card from "../components/Card.astro";
+import { ViewTransitions } from "astro:transitions";
+---
+
+<script is:inline>
+    const isBrowser = typeof localStorage !== "undefined";
+    const getThemePreference = () => {
+        if (isBrowser && localStorage.getItem("theme")) {
+            return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
+    const isDark = getThemePreference() === "dark";
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    if (isBrowser) {
+        const observer = new MutationObserver(() => {
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+    }
+</script>
+
+<PublicLayout title="M15 - Game Design">
+    <ModeWatcher client:load />
+    <ViewTransitions />
+</PublicLayout>

@@ -8,7 +8,7 @@ interface Props {
 const { title, href, customClasses = '' } = Astro.props;
 ---
 
-<a href={href} class={`flex flex-col items-center p-4 m-2 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 ${customClasses}`}>
+<a href={href} class={`flex flex-col items-center p-4 m-2 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 w-52 transition-all duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-lg ${customClasses}`}>
   <slot name="icon" />
   <span class="mt-2 text-lg font-medium text-gray-900 dark:text-gray-100">{title}</span>
 </a>
