@@ -1,35 +1,50 @@
 ---
 import PublicLayout from '@layouts/PublicLayout.astro';
 import '@styles/app.css';
-import Sidenav from "@components/Sidenav.svelte";
 import { ModeWatcher } from "mode-watcher";
+import { Icon } from 'astro-icon/components';
+import Card from '../components/Card.astro';
 ---
 
 <script is:inline>
-    const isBrowser = typeof localStorage !== 'undefined';
-    const getThemePreference = () => {
-      if (isBrowser && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme');
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark' : 'light';
-    };
-    const isDark = getThemePreference() === 'dark';
-    document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
-   
-    if (isBrowser) {
-      const observer = new MutationObserver(() => {
-        const isDark = document.documentElement.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['class']
-      });
+  const isBrowser = typeof localStorage !== 'undefined';
+  const getThemePreference = () => {
+    if (isBrowser && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
     }
-  </script>
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark' : 'light';
+  };
+  const isDark = getThemePreference() === 'dark';
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+  if (isBrowser) {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+</script>
 
 <PublicLayout title="El Servidor">
-    <ModeWatcher client:load/>
-    <Sidenav client:visible/>
+  <ModeWatcher client:load/>
+  
+  <div class="flex flex-col items-center justify-center h-screen p-4 bg-gray-100 dark:bg-gray-900">
+    <h1 class="text-4xl font-bold text-center text-gray-900 dark:text-gray-100">Bienvenido a El Servidor</h1>
+    <div class="flex flex-wrap justify-center mt-8 space-x-4">
+      <Card title="Recursos" href="/resources" customClasses="custom-class">
+        <Icon name="lucide:book" slot="icon" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      </Card>
+      <Card title="Tutoriales" href="/tutorials" customClasses="custom-class">
+        <Icon name="lucide:school" slot="icon" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      </Card>
+      <Card title="Proyectos" href="/projects" customClasses="custom-class">
+        <Icon name="lucide:laptop" slot="icon" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      </Card>
+    </div>
+  </div>
 </PublicLayout>
