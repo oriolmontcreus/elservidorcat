@@ -2,9 +2,10 @@
 import PublicLayout from "@layouts/PublicLayout.astro";
 import "@styles/app.css";
 import { ModeWatcher } from "mode-watcher";
-import { Icon } from "astro-icon/components";
-import Card from "../components/Card.astro";
+import Breadcrumb from "@components/Breadcrumb.svelte";
 import { ViewTransitions } from "astro:transitions";
+
+let breadcrumbs = [{ path: '/gamedesign', title: 'Game Design' }];
 ---
 
 <script is:inline>
@@ -35,4 +36,5 @@ import { ViewTransitions } from "astro:transitions";
 <PublicLayout title="M15 - Game Design">
     <ModeWatcher client:load />
     <ViewTransitions />
+    <Breadcrumb {breadcrumbs} />
 </PublicLayout>
