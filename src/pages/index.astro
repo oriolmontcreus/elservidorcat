@@ -39,7 +39,7 @@ import MagicCard from "@components/MagicCard.svelte";
       Benvingut <span class="text-blue-500">user</span> a El Servidor
     </h1>
     <div class="flex flex-wrap justify-center gap-4 w-full max-w-[800px] overflow-x-auto">
-      <div class="flex w-full flex-col gap-4 h-[250px] lg:flex-row">
+      <div class="flex w-1/2 flex-col gap-4 h-[250px] lg:flex-row">
         <MagicCard client:visible
         class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#2effbd9e] transition-all duration-300"
         gradientColor="#043634"
@@ -54,38 +54,71 @@ import MagicCard from "@components/MagicCard.svelte";
       </div>
       </MagicCard>
     </div>
+
+    <div class="flex w-1/2 flex-col gap-4 h-[250px] lg:flex-row">
       <MagicCard client:visible
-        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#e67e22] transition-all duration-300"
-        gradientColor="#F0B27A"
+        class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#e67e22] transition-all duration-300"
+        gradientColor="#362504"
+        gradientSize={300}
         href="/vr"
       >
-        <Icon name="lucide:box" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      <div
+      class="group-hover:text-[#e67e22] transition-all duration-500 flex gap-1.5 justify-center items-center font-semibold"
+    >
+        <Icon name="lucide:box" class="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-[#e67e22] transition-all duration-500" />
         <span>M14 - VR</span>
+      </div>
       </MagicCard>
+    </div>
+
+    <div class="flex w-1/2 flex-col gap-4 h-[250px] lg:flex-row">
       <MagicCard client:visible
-        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#f39c12] transition-all duration-300"
-        gradientColor="#F7DC6F"
+        class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#1259f3] transition-all duration-300"
+        gradientColor="#040636"
+        gradientSize={300}
         href="/interfaces"
       >
-        <Icon name="lucide:laptop" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      <div
+      class="group-hover:text-[#1259f3] transition-all duration-500 flex gap-1.5 justify-center items-center font-semibold"
+    >
+        <Icon name="lucide:laptop" class="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-[#1259f3] transition-all duration-500" />
         <span>M7 - Interfícies</span>
+      </div>
       </MagicCard>
+    </div>
+
+    <div class="flex w-1/2 flex-col gap-4 h-[250px] lg:flex-row">
       <MagicCard client:visible
-        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#27ae60] transition-all duration-300"
-        gradientColor="#A9DFBF"
+        class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#27ae60] transition-all duration-300"
+        gradientColor="#043615"
+        gradientSize={300}
         href="/networks"
       >
-        <Icon name="lucide:network" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      <div
+      class="group-hover:text-[#27ae60] transition-all duration-500 flex gap-1.5 justify-center items-center font-semibold"
+    >
+        <Icon name="lucide:network" class="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-[#27ae60] transition-all duration-500" />
         <span>M7 - Xarxes</span>
+      </div>
       </MagicCard>
+    </div>
+
+    <div class="flex w-1/2 flex-col gap-4 h-[250px] lg:flex-row">
       <MagicCard client:visible
-        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#9b59b6] transition-all duration-300"
-       gradientColor="#D7BDE2"
+        class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#9b59b6] transition-all duration-300"
+        gradientColor="#1a0436"
+        gradientSize={300}
         href="/project"
       >
-        <Icon name="lucide:briefcase" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+      <div
+      class="group-hover:text-[#9b59b6] transition-all duration-500 flex gap-1.5 justify-center items-center font-semibold"
+    >
+        <Icon name="lucide:briefcase" class="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-[#9b59b6] transition-all duration-500" />
         <span>M13 - Projecte</span>
+      </div>
       </MagicCard>
+    </div>
+
     </div>
   </main>
   <ViewTransitions />
