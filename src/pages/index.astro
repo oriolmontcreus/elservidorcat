@@ -3,8 +3,8 @@ import PublicLayout from "@layouts/PublicLayout.astro";
 import "@styles/app.css";
 import { ModeWatcher } from "mode-watcher";
 import { Icon } from "astro-icon/components";
-import Card from "../components/Card.astro";
 import { ViewTransitions } from "astro:transitions";
+import MagicCard from "@components/MagicCard.svelte";
 ---
 
 <script is:inline>
@@ -34,54 +34,58 @@ import { ViewTransitions } from "astro:transitions";
 
 <PublicLayout title="El Servidor">
   <ModeWatcher client:load />
-  <main
-    class="flex flex-col items-center justify-center h-full p-12 bg-gray-100 dark:bg-gray-900"
-  >
-    <h1
-      class="text-4xl my-5 font-bold text-center text-gray-900 dark:text-gray-100"
-    >
-      Benvingut
-      <span class="text-blue-500">user</span>
-      a El Servidor
+  <main class="flex flex-col items-center justify-center p-12 bg-gray-100 dark:bg-gray-900">
+    <h1 class="text-4xl my-5 font-bold text-center text-gray-900 dark:text-gray-100">
+      Benvingut <span class="text-blue-500">user</span> a El Servidor
     </h1>
-    <div
-      class="flex flex-wrap justify-center gap-2 w-full max-w-[800px] overflow-x-auto"
+    <div class="flex flex-wrap justify-center gap-4 w-full max-w-[800px] overflow-x-auto">
+      <div class="flex w-full flex-col gap-4 h-[250px] lg:flex-row">
+        <MagicCard client:visible
+        class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl group hover:border-[#2effbd9e] transition-all duration-300"
+        gradientColor="#043634"
+        gradientSize={300}
+        href="/gamedesign"
+      >
+      <div
+      class="group-hover:text-[#2EFFBD] transition-all duration-500 flex gap-1.5 justify-center items-center font-semibold"
     >
-      <Card title="M15 - Game Design" href="/gamedesign">
-        <Icon
-          name="lucide:gamepad"
-          slot="icon"
-          class="w-12 h-12 text-gray-700 dark:text-gray-300"
-        />
-      </Card>
-      <Card title="M14 - VR" href="/vr">
-        <Icon
-          name="lucide:box"
-          slot="icon"
-          class="w-12 h-12 text-gray-700 dark:text-gray-300"
-        />
-      </Card>
-      <Card title="M7 - Interfícies" href="/interfaces">
-        <Icon
-          name="lucide:laptop"
-          slot="icon"
-          class="w-12 h-12 text-gray-700 dark:text-gray-300"
-        />
-      </Card>
-      <Card title="M7 - Xarxes" href="/networks">
-        <Icon
-          name="lucide:network"
-          slot="icon"
-          class="w-12 h-12 text-gray-700 dark:text-gray-300"
-        />
-      </Card>
-      <Card title="M13 - Projecte" href="/project">
-        <Icon
-          name="lucide:briefcase"
-          slot="icon"
-          class="w-12 h-12 text-gray-700 dark:text-gray-300"
-        />
-      </Card>
+        <Icon name="lucide:gamepad" class="w-12 h-12 text-gray-700 dark:text-gray-300 group-hover:text-[#2EFFBD] transition-all duration-500" />
+        <span>M15 - Game Design</span>
+      </div>
+      </MagicCard>
+    </div>
+      <MagicCard client:visible
+        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#e67e22] transition-all duration-300"
+        gradientColor="#F0B27A"
+        href="/vr"
+      >
+        <Icon name="lucide:box" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+        <span>M14 - VR</span>
+      </MagicCard>
+      <MagicCard client:visible
+        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#f39c12] transition-all duration-300"
+        gradientColor="#F7DC6F"
+        href="/interfaces"
+      >
+        <Icon name="lucide:laptop" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+        <span>M7 - Interfícies</span>
+      </MagicCard>
+      <MagicCard client:visible
+        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#27ae60] transition-all duration-300"
+        gradientColor="#A9DFBF"
+        href="/networks"
+      >
+        <Icon name="lucide:network" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+        <span>M7 - Xarxes</span>
+      </MagicCard>
+      <MagicCard client:visible
+        class="group relative flex max-w-[400px] w-full h-[250px] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white py-4 cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-2xl group-hover:border-[#9b59b6] transition-all duration-300"
+       gradientColor="#D7BDE2"
+        href="/project"
+      >
+        <Icon name="lucide:briefcase" class="w-12 h-12 text-gray-700 dark:text-gray-300" />
+        <span>M13 - Projecte</span>
+      </MagicCard>
     </div>
   </main>
   <ViewTransitions />
