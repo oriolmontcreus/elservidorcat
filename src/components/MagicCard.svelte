@@ -4,14 +4,16 @@
     import { cn } from "@utils/cn";
 
     export let gradientSize: number = 200;
-    export let gradientColor: string = "#262626";
+    export let lightGradientColor: string = "#262626";
+    export let darkGradientColor: string = "#ffffff";
     export let gradientOpacity: number = 0.8;
     export let href: string = "#";
     let className: string = "";
     export { className as class };
 
     let gradSize = useMotionValue(gradientSize);
-    let gradColor = useMotionValue(gradientColor);
+    let gradLightColor = useMotionValue(lightGradientColor);
+    let gradDarkColor = useMotionValue(darkGradientColor);
     let mouseX = useMotionValue(-gradientSize);
     let mouseY = useMotionValue(-gradientSize);
 
@@ -30,7 +32,9 @@
         mouseX.set(-gradientSize);
         mouseY.set(-gradientSize);
     });
-    let bg = useMotionTemplate`radial-gradient(${gradSize}px circle at ${mouseX}px ${mouseY}px, ${gradColor}, transparent 100%)`;
+
+    let lightBg = useMotionTemplate`radial-gradient(${gradSize}px circle at ${mouseX}px ${mouseY}px, ${gradLightColor}, transparent 100%)`;
+    let darkBg = useMotionTemplate`radial-gradient(${gradSize}px circle at ${mouseX}px ${mouseY}px, ${gradDarkColor}, transparent 100%)`;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -39,7 +43,7 @@
     on:mouseleave={handleMouseLeave}
     href={href}
     class={cn(
-        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border text-black dark:text-white justify-center py-4",
+        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border dark:border-gray-800  border-gray-300 text-black dark:text-white justify-center py-4",
         className,
     )}
 >
@@ -53,14 +57,26 @@
     </div>
     <Motion
         style={{
-            background: bg,
+            background: lightBg,
             opacity: gradientOpacity,
         }}
         let:motion
     >
         <div
             use:motion
-            class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:hidden"
+        />
+    </Motion>
+    <Motion
+        style={{
+            background: darkBg,
+            opacity: gradientOpacity,
+        }}
+        let:motion
+    >
+        <div
+            use:motion
+            class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:block hidden"
         />
     </Motion>
 </a>
