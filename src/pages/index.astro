@@ -35,13 +35,13 @@ import MagicCard from "@components/MagicCard.svelte";
 <PublicLayout title="El Servidor">
   <ModeWatcher client:load />
   <main class="flex flex-col items-center justify-center p-6 md:p-12 bg-gray-100 dark:bg-gray-900">
-    <h1 class="text-2xl sm:text-3xl lg:text-4xl my-5 font-bold text-center text-gray-900 dark:text-gray-100">
+    <h1 class="text-2xl sm:text-3xl  my-5 font-bold text-center text-gray-900 dark:text-gray-100">
       Benvingut <span class="text-blue-500">user</span> a El Servidor
     </h1>
-    <div class="flex flex-wrap justify-center gap-4 w-full max-w-[1200px] overflow-x-auto">
-      <div class="flex w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] flex-col gap-4 h-[200px] lg:flex-row">
+    <div class="flex flex-wrap justify-center gap-4 w-full max-w-[1200px] overflow-x-auto min-h-[200px]">
+      <div class="flex flex-1 flex-col gap-4 lg:flex-row" style="min-height: 200px;">
         <MagicCard client:visible
-          class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl lg:text-4xl group hover:border-[#2effbd9e] transition-all duration-300"
+          class="cursor-pointer flex-1 flex flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl group hover:border-[#2effbd9e] transition-all duration-300 px-10"
           gradientColor="#043634"
           gradientSize={300}
           href="/gamedesign"
@@ -55,9 +55,9 @@ import MagicCard from "@components/MagicCard.svelte";
         </MagicCard>
       </div>
 
-      <div class="flex w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] flex-col gap-2 h-[200px] lg:flex-row">
+      <div class="flex flex-1 flex-col gap-4 lg:flex-row" style="min-height: 200px;">
         <MagicCard client:visible
-          class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl lg:text-4xl group hover:border-[#e67e22] transition-all duration-300"
+          class="cursor-pointer flex-1 flex flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl group hover:border-[#e67e22] transition-all duration-300 px-10"
           gradientColor="#362504"
           gradientSize={300}
           href="/vr"
@@ -71,9 +71,9 @@ import MagicCard from "@components/MagicCard.svelte";
         </MagicCard>
       </div>
 
-      <div class="flex w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] flex-col gap-2 h-[200px] lg:flex-row">
+      <div class="flex flex-1 flex-col gap-4 lg:flex-row" style="min-height: 200px;">
         <MagicCard client:visible
-          class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl lg:text-4xl group hover:border-[#1259f3] transition-all duration-300"
+          class="cursor-pointer flex-1 flex flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl  group hover:border-[#1259f3] transition-all duration-300 px-10"
           gradientColor="#040636"
           gradientSize={300}
           href="/interfaces"
@@ -87,9 +87,9 @@ import MagicCard from "@components/MagicCard.svelte";
         </MagicCard>
       </div>
 
-      <div class="flex w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] flex-col gap-2 h-[200px] lg:flex-row">
+      <div class="flex flex-1 flex-col gap-4 lg:flex-row" style="min-height: 200px;">
         <MagicCard client:visible
-          class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl lg:text-4xl group hover:border-[#27ae60] transition-all duration-300"
+          class="cursor-pointer flex-1 flex flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl  group hover:border-[#27ae60] transition-all duration-300 px-10"
           gradientColor="#043615"
           gradientSize={300}
           href="/networks"
@@ -103,9 +103,9 @@ import MagicCard from "@components/MagicCard.svelte";
         </MagicCard>
       </div>
 
-      <div class="flex w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.5rem)] flex-col gap-2 h-[200px] lg:flex-row">
+      <div class="flex flex-1 flex-col gap-4 lg:flex-row" style="min-height: 200px;">
         <MagicCard client:visible
-          class="cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xl lg:text-4xl group hover:border-[#9b59b6] transition-all duration-300"
+          class="cursor-pointer flex-1 flex flex-col items-center justify-center shadow-2xl whitespace-nowrap text-xl sm:text-2xlgroup hover:border-[#9b59b6] transition-all duration-300 px-10"
           gradientColor="#1a0436"
           gradientSize={300}
           href="/project"
