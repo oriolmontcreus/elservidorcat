@@ -43,7 +43,7 @@
     on:mouseleave={handleMouseLeave}
     href={href}
     class={cn(
-        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border dark:border-gray-800  border-gray-300 text-black dark:text-white justify-center py-4",
+        "group relative flex size-full overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900 border  text-black dark:text-white justify-center py-4",
         className,
     )}
 >
